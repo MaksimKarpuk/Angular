@@ -1,4 +1,15 @@
-<div class="block">
-  <app-cell *ngFor="let cell of cells" [cell]="cell">
-  </app-cell>
+<div class="container">
+  <div class="info">
+    <div class="winner">Winner is: {{ calcWinner() }}</div>
+    <button class="restart" (click)="newGame()">RESTART</button>
+  </div>
+
+  <div class="block">
+    <app-cell
+      *ngFor="let cell of board; let i = index"
+      [cell]="cell"
+      (click)="makeMove(i)"
+    >
+    </app-cell>
+  </div>
 </div>
